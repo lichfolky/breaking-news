@@ -1,0 +1,5 @@
+<!-- (user$ | async)?.messages safe navigation operator -->
+<div *ngIf="news$ | async as news; else loading">
+  {{ news | json}}
+</div>
+<ng-template #loading> Loading news... </ng-template>

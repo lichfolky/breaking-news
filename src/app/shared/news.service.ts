@@ -7,12 +7,16 @@ import { getRandomIntInclusive } from './random.utils';
   providedIn: 'root',
 })
 export class NewsService {
+  timerFirst = 1000;
+  timerInterval = 10000;
   newsCount = 0;
 
   constructor() {}
 
   getLastNews(newsNumber: number) {
-    return timer(1000, 3000).pipe(map(() => this.generateNews(newsNumber)));
+    return timer(this.timerFirst, this.timerInterval).pipe(
+      map(() => this.generateNews(newsNumber))
+    );
   }
 
   private generateNews(newsNumber: number): string[] {

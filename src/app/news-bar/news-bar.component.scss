@@ -1,0 +1,29 @@
+.news-bar {
+  background: #666;
+  color: #fff;
+  padding: 0rem;
+  text-align: right;
+}
+
+.news-bar-title {
+  background: #333;
+  width: max-content;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.news-containter {
+  display: grid;
+  grid-template: "news" auto / 100%;
+  margin: 0rem 1rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.news {
+  grid-area: news;
+  padding: 1rem 0rem;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 100%;
+}

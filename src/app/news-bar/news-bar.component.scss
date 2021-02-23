@@ -1,4 +1,6 @@
 .news-bar {
+  display: flex;
+  flex-direction: row;
   background: #666;
   color: #fff;
   padding: 0rem;
@@ -7,12 +9,14 @@
 
 .news-bar-title {
   background: #333;
-  width: max-content;
   font-size: 1.5rem;
   padding: 1rem;
+  width: max-content;
 }
 
 .news-containter {
+  flex: 1;
+
   display: grid;
   grid-template: "news" auto / 100%;
   margin: 0rem 1rem;

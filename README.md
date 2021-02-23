@@ -24,6 +24,18 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-
 https://css-tricks.com/animations-the-angular-way/
 https://indepth.dev/posts/1285/in-depth-guide-into-animations-in-angular
+
+
+http://css3.bradshawenterprises.com/transitions/
+https://www.smashingmagazine.com/2011/09/the-guide-to-css-animation-principles-and-examples/
+
+https://developer.mozilla.org/en-US/docs/Web/Demos_of_open_web_technologies
+
+https://thoughtbot.com/blog/transitions-and-transforms
+https://stackblitz.com/angular/pyeorvgyxyd?file=src%2Fapp%2Fapp.module.ts
+
+
+Animation Inspector
+Before we dive into how to use the Ch

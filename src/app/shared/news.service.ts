@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { merge, of, timer } from 'rxjs';
+import { merge, of, ReplaySubject, Subject, timer } from 'rxjs';
 import { map, takeLast } from 'rxjs/operators';
 import { getRandomIntInclusive } from './random.utils';
 
@@ -7,31 +7,26 @@ import { getRandomIntInclusive } from './random.utils';
   providedIn: 'root',
 })
 export class NewsService {
-  timerFirst = 1000;
-  timerInterval = 10000;
+  timerFirst = 100;
+  timerInterval = 1000;
   newsCount = 0;
+  newsNumber = 5;
+  lastNews: Subject<string>;
 
-  constructor() {}
+  constructor() {
+    this.lastNews = new Subject();
 
-  getLastNews(newsNumber: number) {
-    return timer(this.timerFirst, this.timerInterval).pipe(
-      map(() => this.generateNews(newsNumber))
+    timer(this.timerFirst, this.timerInterval).subscribe(() =>
+      this.lastNews.next(this.generateNews())
     );
   }
 
-  private generateNews(newsNumber: number): string[] {
-    let oldNewsNumber = getRandomIntInclusive(0, newsNumber);
-    if (oldNewsNumber > this.newsCount) {
-      oldNewsNumber = this.newsCount;
-    }
-    let news = [];
-    for (let nOld = 0; nOld < oldNewsNumber; nOld++) {
-      news.push('Old news ' + (this.newsCount - oldNewsNumber + 1 + nOld));
-    }
-    for (let nNew = 0; nNew < newsNumber - oldNewsNumber; nNew++) {
-      this.newsCount++;
-      news.push('New news ' + this.newsCount);
-    }
-    return news;
+  getLastNews() {
+    return this.lastNews;
+  }
+
+  private generateNews(): string {
+    this.newsCount++;
+    return 'Breaking news [' + this.newsCount + ']';
   }
 }

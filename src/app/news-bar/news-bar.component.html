@@ -1,8 +1,16 @@
 <div class="news-bar">
   <div class="news-bar-title">Breaking news:</div>
-  <div class="news-containter" *ngIf="news$ | async as someNews; else loading">
-    <div class="news" *ngFor="let news of someNews; index as i" [@flyInOut]>
-      {{ news }}
+
+  <div class="news-containter" *ngIf="tokenizedQueue; else loading">
+    <div class="news" *ngFor="let news of tokenizedQueue; index as i">
+      <div
+        *ngIf="enabled == i"
+        [@flyInOut]
+        (@flyInOut.start)="captureStartEvent($event)"
+        (@flyInOut.done)="captureStartEvent($event)"
+      >
+        {{ news }}
+      </div>
     </div>
   </div>
   <ng-template #loading>
@@ -14,3 +22,19 @@
 
 <button (click)="enabled == 0 ? (enabled = -1) : (enabled = 0)">start</button
 >{{ " " + enabled }}
+
+<div class="news-containter" *ngIf="newsQueue; else loading">
+  {{ newsQueue | json }}
+</div>
+
+<div class="news-containter" *ngIf="tokenizedQueue; else loading">
+  {{ tokenizedQueue | json }}
+</div>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/mNyethAqJzk"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>

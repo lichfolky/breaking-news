@@ -6,6 +6,12 @@ For now I have made only few caption [experiments](https://lichfolky.github.io/n
 ) with a youtube iframe,
 but the goal it's to have my own player with synched news.
 
+Ostacles: 
++ variable arrival of new news
++ all the news should flow with the same speed
++ the arrival of new news should not block the previus flow
++ the news flow should stop/start with the play button of the video.
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.

@@ -1,12 +1,16 @@
 # BreakingNews
 
-## Development server
+The goal of this project is to create a stream of news from a websocket api managed with node and with rxjs collect the stream, manage a circolar queue to show a caption with the last news available from the stream.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For now I have made only few caption [experiments](https://lichfolky.github.io/node/rxjs/videos/2021/02/20/breaking-news.html
+) with a youtube iframe,
+but the goal it's to have my own player with synched news.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ostacles: 
++ variable arrival of new news
++ all the news should flow with the same speed
++ the arrival of new news should not block the previus flow
++ the news flow should stop/start with the play button of the video.
 
 ## Build
 
